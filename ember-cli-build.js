@@ -4,8 +4,18 @@ const GlimmerApp = require('@glimmer/application-pipeline').GlimmerApp;
 
 module.exports = function(defaults) {
   let app = new GlimmerApp(defaults, {
-    // Add options here
+    'css-blocks': {
+      entry: 'CssBlockDummy',
+      parserOpts: {},
+      analysisOpts: {},
+      optimization: {
+        rewriteIdents: true,
+        mergeDeclarations: true,
+        removeUnusedStyles: true,
+        conflictResolution: true,
+        enabled: process.env.EMBER_ENV !== 'development',
+      },
+    }
   });
-
   return app.toTree();
 };

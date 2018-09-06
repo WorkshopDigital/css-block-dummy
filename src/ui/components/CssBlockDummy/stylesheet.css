@@ -1,0 +1,8 @@
+:scope {
+  color:red;
+  text-align:right;
+}
+
+:scope[state|size=lg] {
+  font-size:10rem;
+}
